@@ -25,17 +25,24 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 OBJ = $(SRC:.c=.o) 
 
+BONUS = ft_lstnew_bonus.c \
+
+BNSOBJ = $(BONUS:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
+bonus : $(NAME) $(BNSOBJ)
+	ar rsc $(NAME) $(OBJS) $(BNSOBJ)
+
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS) $(BNSOBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

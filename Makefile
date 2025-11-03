@@ -35,10 +35,10 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
 bonus : $(NAME) $(BNSOBJ)
-	ar rsc $(NAME) $(OBJS) $(BNSOBJ)
+	ar rsc $(NAME) $(OBJ) $(BNSOBJ)
 
 clean:
-	rm -f $(OBJS) $(BNSOBJ)
+	rm -f $(OBJ) $(BNSOBJ)
 
 fclean: clean
 	rm -f $(NAME)

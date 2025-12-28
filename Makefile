@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dkaymak <dkaymak@student.42.fr>             +#+  +:+       +#+         #
+#    By: dkaymak <dkaymak@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/27 18:00:00 by dkaymak           #+#    #+#              #
-#    Updated: 2025/06/27 18:00:00 by dkaymak          ###   ########.fr        #
+#    Created: 2025/12/28 17:44:54 by dkaymak           #+#    #+#              #
+#    Updated: 2025/12/28 17:44:55 by dkaymak          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
 	ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
 	ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+	ft_free_split.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -32,7 +33,10 @@ BNSOBJ = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(BNSOBJ)
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
+bonus: $(OBJ) $(BNSOBJ)
 	ar rcs $(NAME) $(OBJ) $(BNSOBJ)
 
 clean:
@@ -43,4 +47,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
